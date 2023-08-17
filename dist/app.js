@@ -27,4 +27,8 @@ function getAndDescribe(element) {
     return [element, descriptionText];
 }
 console.log(getAndDescribe("Hello there!"));
+function extractAndConvert(obj, key) {
+    return obj[key];
+}
+extractAndConvert({ name: "Masoud" }, "name");
 //# sourceMappingURL=app.js.map
