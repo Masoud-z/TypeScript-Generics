@@ -51,3 +51,63 @@ function extractAndConvert<T extends object, U extends keyof T>(
 }
 
 extractAndConvert({ name: "Masoud" }, "name");
+
+//------------------++++------------------
+//------------------++++------------------
+//------------------++++------------------
+//------------------++Generics for Classes++------------------
+class DataStorage<T extends number | string | boolean> {
+  private data: T[] = [];
+  addItem(item: T) {
+    this.data.push(item);
+  }
+  removeItem(item: T) {
+    if (this.data.indexOf(item) === -1) {
+      return;
+    }
+    this.data.splice(this.data.indexOf(item), 1);
+  }
+  getItems() {
+    return [...this.data];
+  }
+}
+
+const newStringData = new DataStorage<string>();
+newStringData.addItem("Masoud");
+newStringData.addItem("Ali");
+newStringData.removeItem("Ali");
+console.log(newStringData.getItems());
+
+const newNumberData = new DataStorage<number>();
+newNumberData.addItem(1);
+newNumberData.addItem(3);
+newNumberData.addItem(4);
+newNumberData.removeItem(3);
+console.log(newNumberData.getItems());
+
+//------------------++++------------------
+//------------------++++------------------
+//------------------++++------------------
+//------------------++Generics Utility Types++------------------
+
+interface CourseGoal {
+  title: string;
+  description: string;
+  date: Date;
+}
+
+function setCourseGoal(
+  title: string,
+  description: string,
+  date: Date
+): CourseGoal {
+  let courseGoal: Partial<CourseGoal> = {};
+  courseGoal.title = title;
+  courseGoal.description = description;
+  courseGoal.date = date;
+
+  return courseGoal as CourseGoal;
+
+  const nameArray: Readonly<string[]> = ["Masoud", "Ali"];
+  console.log(nameArray);
+}

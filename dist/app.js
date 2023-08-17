@@ -31,4 +31,41 @@ function extractAndConvert(obj, key) {
     return obj[key];
 }
 extractAndConvert({ name: "Masoud" }, "name");
+class DataStorage {
+    constructor() {
+        this.data = [];
+    }
+    addItem(item) {
+        this.data.push(item);
+    }
+    removeItem(item) {
+        if (this.data.indexOf(item) === -1) {
+            return;
+        }
+        this.data.splice(this.data.indexOf(item), 1);
+    }
+    getItems() {
+        return [...this.data];
+    }
+}
+const newStringData = new DataStorage();
+newStringData.addItem("Masoud");
+newStringData.addItem("Ali");
+newStringData.removeItem("Ali");
+console.log(newStringData.getItems());
+const newNumberData = new DataStorage();
+newNumberData.addItem(1);
+newNumberData.addItem(3);
+newNumberData.addItem(4);
+newNumberData.removeItem(3);
+console.log(newNumberData.getItems());
+function setCourseGoal(title, description, date) {
+    let courseGoal = {};
+    courseGoal.title = title;
+    courseGoal.description = description;
+    courseGoal.date = date;
+    return courseGoal;
+    const nameArray = ["Masoud", "Ali"];
+    console.log(nameArray);
+}
 //# sourceMappingURL=app.js.map
