@@ -16,4 +16,15 @@ console.log(myObj.name);
 const newObj = merge({ productID: 423423 }, { productName: "Apple" });
 console.log(newObj);
 console.log(newObj.productID);
+function getAndDescribe(element) {
+    let descriptionText = "Got no value.";
+    if (element.length === 1) {
+        descriptionText = "Got 1 element'";
+    }
+    else if (element.length > 1) {
+        descriptionText = `Got ${element.length} elements.`;
+    }
+    return [element, descriptionText];
+}
+console.log(getAndDescribe("Hello there!"));
 //# sourceMappingURL=app.js.map
